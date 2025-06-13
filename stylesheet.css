@@ -1,0 +1,228 @@
+/*--Custom properties--*/
+
+:root {
+  --color-primary: #7b284f; /*Cooking time block color and nutritional values*/
+  --color-secondary: #854632; /*Color for ingredient, nutrition and h2 markers*/
+  --color-border-gray: #ccc; /*Border color for table rows*/
+  --color-background-body: #f3e6d8; /*Body background color*/
+  --color-background-article: #fff; /*Article background color*/
+  --color-preparation-time: #fff5fa; /*Preparation-time background color*/
+
+  --padding-main-mobile: 2.5rem; /*Article sidebar padding, excluding #preparation-time and header*/
+  --margin-main-mobile: 2.5rem; /*Bottom vertical spacing of elements*/
+
+  --fonts-h1-h2: "Young Serif", sans-serif; /*Fonts for h1 and h2 titles*/
+
+  --border-radius: 1.5rem; /*Border-radius for #preparation time and layout mobile*/
+  
+  --line-height-mobile: 2.5rem; /*Line height #preparation-time, #ingredients, #instructions, caption and p*/
+  --line-height-desktop: 3rem; /*Line height #preparation-time and ingredients*/
+}
+
+/*--Layout (Mobile 375px)--*/
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--color-background-body);
+  font-size: 1.6rem;
+  font-family: "Outfit", sans-serif;
+}
+
+article {
+  width: 100%;
+  max-width: 37.5rem;
+  height: auto;
+  background-color: var(--color-background-article);
+  padding-bottom: 1rem;
+}
+
+article > section:not(#preparation-time),
+article > header h1,
+article > header p {
+  padding: 0 var(--padding-main-mobile);
+}
+
+img {
+  display: inline-block;
+  max-width: 37.5rem;
+  max-height: 17.15rem;
+}
+
+header > img,
+header > h1,
+header > p,
+article > section,
+article > section h2,
+article > hr,
+article > section > table caption {
+  margin-bottom: var(--margin-main-mobile);
+}
+
+hr {
+  border: none;
+  border-top: 0.1rem solid var(--color-border-gray);
+  height: 0;
+  margin: 0 var(--padding-main-mobile);
+}
+
+#preparation-time {
+  margin-left: var(--margin-main-mobile);
+  margin-right: var(--margin-main-mobile);
+  padding: 2rem 3.9rem 1rem 2rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color-preparation-time);
+}
+
+#preparation-time > h2 {
+  margin: 0 0 1rem 0;
+  color: var(--color-primary);
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: "Outfit", sans-serif;
+}
+
+#preparation-time li,
+#ingredients li {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.align-top {
+  align-self: flex-start;
+}
+#preparation-time li::before,
+#ingredients li::before {
+  content: "\2022";
+  font-size: 2rem;
+  margin-right: var(--margin-main-mobile);
+  color: var(--color-primary);
+}
+
+#instructions li::marker {
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+#ingredients ul,
+#preparation-time ul {
+  padding-left: 0.7rem;
+}
+
+#instructions ol {
+  padding-left: 2.5rem;
+}
+
+#instructions li {
+  padding-left: 1.5rem;
+  padding-right: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+article h2 {
+  font-size: 2.8rem;
+  font-family: var(--fonts-h1-h2);
+  font-weight: 400;
+  color: var(--color-secondary);
+}
+
+article > header > h1 {
+  font-family: var(--fonts-h1-h2);
+  font-size: 3.6rem;
+  font-weight: 400;
+  color: black;
+}
+
+#preparation-time > ul li,
+#ingredients > ul li,
+#instructions > ol li,
+p {
+  line-height: var(--line-height-mobile);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  padding-right: 3rem;
+  line-height: var(--line-height-mobile);
+}
+
+th {
+  text-align: left;
+  padding: 1rem 1rem 1rem 3rem;
+  border-bottom: 0.1rem solid var(--color-border-gray);
+}
+
+td {
+  padding: 1rem 3rem 1rem 1rem;
+  border-bottom: 0.1rem solid var(--color-border-gray);
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+tr:last-child th,
+tr:last-child td {
+  border-bottom: none;
+}
+
+/*--Layout (Desktop 1440px)--*/
+
+@media screen and (min-width: 1440px) {
+  article {
+    max-width: 73.8rem;
+    height: auto;
+    border-radius: var(--border-radius);
+    padding: 4rem 4rem 0.5rem 4rem;
+  }
+
+  article > section:not(#preparation-time),
+  article > header h1,
+  article > header p {
+    padding: 0;
+  }
+
+  img {
+    display: inline-block;
+    max-width: 65.5rem;
+    max-height: 30rem;
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+  }
+
+  #preparation-time {
+    max-width: 65.8rem;
+    margin: 0 auto var(--margin-main-mobile) auto;
+  }
+
+  caption {
+    text-align: left;
+  }
+
+  article > header > h1 {
+    font-size: 4rem;
+  }
+
+  hr {
+    margin: 0;
+  }
+
+  #preparation-time,
+  #ingredients {
+    line-height: var(--line-height-desktop);
+  }
+}

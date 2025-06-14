@@ -31,10 +31,10 @@ html {
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
   min-height: 100vh;
+  grid-template-rows: 1fr;
   background-color: var(--color-background-body);
   font-size: 1.6rem;
   font-family: "Outfit", sans-serif;
@@ -48,26 +48,10 @@ article {
   padding-bottom: 1rem;
 }
 
-article > section:not(#preparation-time),
-article > header h1,
-article > header p {
-  padding: 0 var(--padding-main-mobile);
-}
-
 img {
   display: inline-block;
   max-width: 37.5rem;
   max-height: 17.15rem;
-}
-
-header > img,
-header > h1,
-header > p,
-article > section,
-article > section h2,
-article > hr,
-article > section > table caption {
-  margin-bottom: var(--margin-main-mobile);
 }
 
 hr {
@@ -75,6 +59,36 @@ hr {
   border-top: 0.1rem solid var(--color-border-gray);
   height: 0;
   margin: 0 var(--padding-main-mobile);
+}
+
+article h2 {
+  font-size: 2.8rem;
+  font-family: var(--fonts-h1-h2);
+  font-weight: 400;
+  color: var(--color-secondary);
+}
+
+article > header > h1 {
+  font-family: var(--fonts-h1-h2);
+  font-size: 3.6rem;
+  font-weight: 400;
+  color: black;
+}
+
+article > section:not(#preparation-time),
+article > header h1,
+article > header p {
+  padding: 0 var(--padding-main-mobile);
+}
+
+header > img,
+header > h1,
+header > p,
+article > hr,
+article > section,
+article > section h2,
+article > section > table caption {
+  margin-bottom: var(--margin-main-mobile);
 }
 
 #preparation-time {
@@ -90,11 +104,10 @@ hr {
   color: var(--color-primary);
   font-size: 2rem;
   font-weight: 600;
-  font-family: "Outfit", sans-serif;
 }
 
-#preparation-time li,
-#ingredients li {
+#preparation-time > ul li,
+#ingredients > ul li {
   list-style-type: none;
   display: flex;
   align-items: center;
@@ -103,7 +116,7 @@ hr {
 .align-top {
   align-self: flex-start;
 }
-#preparation-time li::before,
+#preparation-time > li::before,
 #ingredients li::before {
   content: "\2022";
   font-size: 2rem;
@@ -111,38 +124,24 @@ hr {
   color: var(--color-primary);
 }
 
-#instructions li::marker {
+#instructions > li::marker {
   color: var(--color-secondary);
   font-weight: 700;
 }
 
-#ingredients ul,
-#preparation-time ul {
+#ingredients > ul,
+#preparation-time > ul {
   padding-left: 0.7rem;
 }
 
-#instructions ol {
+#instructions > ol {
   padding-left: 2.5rem;
 }
 
-#instructions li {
+#instructions > li {
   padding-left: 1.5rem;
   padding-right: 0.5rem;
   margin-bottom: 1rem;
-}
-
-article h2 {
-  font-size: 2.8rem;
-  font-family: var(--fonts-h1-h2);
-  font-weight: 400;
-  color: var(--color-secondary);
-}
-
-article > header > h1 {
-  font-family: var(--fonts-h1-h2);
-  font-size: 3.6rem;
-  font-weight: 400;
-  color: black;
 }
 
 #preparation-time > ul li,
